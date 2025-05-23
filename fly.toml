@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for homey-project-manager-app on 2025-05-23T10:47:21+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'homey-project-manager-app'
+primary_region = 'lhr'
+console_command = '/rails/bin/rails console'
+
+[build]
+
+[[mounts]]
+  source = 'homey_project_manager_data'
+  destination = '/data'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
