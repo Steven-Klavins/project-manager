@@ -1,0 +1,51 @@
+<% content_for :title, "Projects" %>
+
+<div class="w-full pb-20">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Projects</h1>
+    <% if current_user.admin? %>
+      <%= link_to "New project", new_project_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <% end %>
+  </div>
+
+  <div id="projects" class="min-w-full mt-10">
+    <% if @projects.any? %>
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Project
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Status
+            </th>
+            <th scope="col" class="px-6 py-3">
+              View
+            </th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @projects.each do |project| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <td class="px-6 py-4">
+                <%= project.name %>
+              </td>
+              <td class="px-6 py-4">
+                <%= project.status %>
+              </td>
+              <td class="px-6 py-4">
+                <%= link_to "View", project %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
