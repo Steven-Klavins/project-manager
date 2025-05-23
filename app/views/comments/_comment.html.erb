@@ -1,0 +1,5 @@
+<div class="mt-5 mb-5 block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <strong><%= comment.user.full_name %></strong>
+  <%= "#{comment.created_at.strftime("%d/%m/%y")} at #{comment.created_at.strftime("%H:%M")}" %>
+  <p> <%= comment.body %> </p>
+</div>

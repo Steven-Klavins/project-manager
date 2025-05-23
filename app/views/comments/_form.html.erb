@@ -1,0 +1,22 @@
+<% if comment.errors.any? %>
+  <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+    <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+    <ul class="list-disc ml-6">
+      <% comment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="mb-5 mt-5 w-full">
+  <%= form_with(model: [ project, comment ], data: { turbo_frame: "new_comment" }, id: "comment_form") do |form| %>
+    <div class="w-full block relative inline-flex justify-between gap-2 mb-5">
+      <%= form.text_area :body, rows: 3, placeholder: "Write a comment...", class: "w-[73vw] py-3 px-5 rounded-lg border border-gray-300 bg-white shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] focus:outline-none text-gray-900 placeholder-gray-400 leading-relaxed" %>
+    </div>
+    <%= form.submit "Post Comment", class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block" %>
+  <% end %>
+</div>
+
+

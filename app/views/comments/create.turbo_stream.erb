@@ -1,0 +1,2 @@
+<% # Empty the form after submitting a comment. %>
+<%= turbo_stream.update "new_comment", partial: "comments/form", locals: { project: @project, comment: Comment.new } %>
