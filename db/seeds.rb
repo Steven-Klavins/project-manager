@@ -12,9 +12,10 @@ if Rails.env.production?
 
   standard_user = User.where(email: ENV['HOMEY_USER_EMAIL']).first_or_initialize
 
-  standard_user.update!(
+  User.create!(
     first_name: "Homey",
     last_name: "User",
+    email: ENV['HOMEY_USER_EMAIL'],
     password: ENV['HOMEY_USER_PASSWORD'],
     password_confirmation: ENV['HOMEY_USER_PASSWORD']
   )
@@ -24,6 +25,7 @@ if Rails.env.production?
   admin_user.update!(
     first_name: "Homey",
     last_name: "Admin",
+    email: ENV['HOMEY_ADMIN_EMAIL'],
     password: ENV['HOMEY_ADMIN_PASSWORD'],
     password_confirmation: ENV['HOMEY_ADMIN_PASSWORD']
   )
