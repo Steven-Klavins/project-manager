@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+trix-editor {
+  @apply min-h-[400px]; /* Tailwind utility to set minimum height */
+}
