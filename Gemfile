@@ -38,9 +38,13 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
+
+  # Enviroment variables https://github.com/bkeepers/dotenv
+  gem 'dotenv'
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -49,6 +53,11 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Testing https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 8.0.0'
+
+  gem 'byebug'
 end
 
 group :development do
@@ -60,4 +69,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'database_cleaner-active_record'
 end
+
+gem "tailwindcss-rails", "~> 3.3.1"
+
+gem "devise", "~> 4.9"
+
+gem "tailwindcss-ruby", "~> 3.4"
